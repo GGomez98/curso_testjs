@@ -5,22 +5,19 @@ on:
       - "./api/**"
       - "github/workflows/api-ci.yml"
 
-  defaults:
-    run:
-      working-directory: ./api
   pull_request:
     paths:
       - 'api/**'
       - '.github/workflows/api-ci.yml'
   workflow_dispatch:
 
-defaults:
-  run:
-    working-directory: ./api
-
 jobs:
   unit-test:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./api
 
     steps:
       - name: Checkout repository
