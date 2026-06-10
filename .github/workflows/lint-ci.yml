@@ -16,7 +16,7 @@ defaults:
     working-directory: ./examples/api
 
 jobs:
-  unit-test:
+  lint-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,4 +34,4 @@ jobs:
         run: npm ci
 
       - name: Run lint
-        run: npm test -- --runInBand
+        run: npm run lint
