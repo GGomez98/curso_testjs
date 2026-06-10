@@ -3,11 +3,11 @@ name: API CI
 on:
   push:
     paths:
-      - 'api/**'
+      - 'examples/api/**'
       - '.github/workflows/api-ci.yml'
   pull_request:
     paths:
-      - 'api/**'
+      - 'examples/api/**'
       - '.github/workflows/api-ci.yml'
   workflow_dispatch:
 
@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 18
           cache: npm
-          cache-dependency-path: api/package-lock.json
+          cache-dependency-path: examples/api/package-lock.json
 
       - name: Install dependencies
         run: npm ci
