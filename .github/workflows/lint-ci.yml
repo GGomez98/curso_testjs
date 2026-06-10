@@ -4,11 +4,11 @@ on:
   push:
     paths:
       - 'examples/api/**'
-      - '.github/workflows/api-ci.yml'
+      - '.github/workflows/lint-ci.yml'
   pull_request:
     paths:
       - 'examples/api/**'
-      - '.github/workflows/api-ci.yml'
+      - '.github/workflows/lint-ci.yml'
   workflow_dispatch:
 
 defaults:
