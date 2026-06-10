@@ -16,10 +16,19 @@ class MongoLib {
   async connect() {
     if (!MongoLib.connection) {
       await this.client.connect();
+      MongoLib.client = this.client;
       MongoLib.connection = this.client.db(this.dbName);
       return MongoLib.connection;
     }
     return MongoLib.connection;
+  }
+
+  async close() {
+    if (MongoLib.connection) {
+      await this.client.close();
+      MongoLib.connection = null;
+      MongoLib.client = null;
+    }
   }
 
   async getAll(collection, query) {
